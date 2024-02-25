@@ -22,6 +22,11 @@
 
     %hr.spacer/
 
+    .fields-group
+      = f.input :delivery, wrapper: :with_label
+
+    %hr.spacer/
+
   - unless current_user.role.id == @role.id
 
     .field-group

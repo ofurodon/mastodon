@@ -131,6 +131,7 @@ ja:
       user_role:
         color: UI 全体でロールの表示に使用される色（16進数RGB形式）
         highlighted: これによりロールが公開されます。
+        delivery: チェックが入っていない場合は外部サーバーへの配送を行いません
         name: ロールのバッジを表示する際の表示名
         permissions_as_keys: このロールを持つユーザーは次の機能にアクセスできます
         position: 場合により、より高いロールのユーザーが紛争の解決を決定します。特定のアクションは優先度が低いロールでのみ実行できます。
@@ -314,6 +315,7 @@ ja:
       user_role:
         color: バッジの色
         highlighted: プロフィールにロールのバッジを表示する
+        delivery: 外部サーバーに配送する
         name: 名前
         permissions_as_keys: 権限
         position: 優先度

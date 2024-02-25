@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Added
+
+- Add a `delivery` flag, which controls sending outside the server
+
 ## [4.2.8] - 2024-02-23
 
 ### Added

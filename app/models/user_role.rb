@@ -10,6 +10,7 @@
 #  position    :integer          default(0), not null
 #  permissions :bigint(8)        default(0), not null
 #  highlighted :boolean          default(FALSE), not null
+#  delivery    :boolean          default(TRUE)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -105,7 +106,7 @@ class UserRole < ApplicationRecord
   def self.everyone
     UserRole.find(-99)
   rescue ActiveRecord::RecordNotFound
-    UserRole.create!(id: -99, permissions: Flags::DEFAULT)
+    UserRole.create!(id: -99, permissions: Flags::DEFAULT, delivery: true)
   end
 
   def self.that_can(*any_of_privileges)
