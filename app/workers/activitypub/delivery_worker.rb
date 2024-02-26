@@ -29,13 +29,16 @@ class ActivityPub::DeliveryWorker
 
     @json           = json
     @source_account = Account.find(source_account_id)
-    @user           = User.find_by(account_id: @source_account.id)
-    @role           = UserRole.find_by(id: @user.role_id)
+    begin
+      @delivery     = UserRole.find_by(id: User.find_by(account_id: @source_account.id).role_id).delivery
+    rescue NoMethodError
+      @delivery     = @source_account.id == -99
+    end
     @inbox_url      = inbox_url
     @host           = Addressable::URI.parse(inbox_url).normalized_site
     @performed      = false
 
-    @role.delivery ? perform_request : Stoplight('dummy').run { @performed = true }
+    @delivery ? perform_request : Stoplight('dummy').run { @performed = true }
   ensure
     if @inbox_url.present?
       if @performed
